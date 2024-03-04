@@ -1,10 +1,37 @@
 <script>
+import AppCards from './components/AppCards.vue';
+import {store} from './store.js';
+
+import axios from 'axios';
+
+export default{
+  components: {AppCards},
+
+  data(){
+    return{
+      store,
+
+    }
+  },
+
+  created(){
+    axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0").then(res =>{
+      this.store.cards = res.data
+      console.log(res.data)
+    })
+  }
+
+ 
+
+}
+
+
 </script>
 
 <template>
-<div>
-  ciao
-</div>
+
+<AppCards></AppCards>
+
 </template>
 
 <style lang="scss">
