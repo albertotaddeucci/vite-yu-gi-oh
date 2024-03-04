@@ -15,7 +15,11 @@ export default {
 
 <li>
     <img :src="cardImg.image_url" alt="">
-    <span>{{ card.name }}</span>
+    <div class="card-text">
+        <div class="card-name">{{ card.name }}</div>
+        <div class="card-archetype">{{ card.archetype }}</div>
+
+    </div>
 </li>
 
 </template>
@@ -26,23 +30,36 @@ export default {
 
 li{
     width: calc(100%/5 - $cardsGapX / 5 * 4);
-    
 
-    background-color: $primaryBg;
-    color: white;
 
     text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
+
+    background-color: $primaryBg;
+    color: white;   
 
 
     img{
         width: 100%;
     }
 
-    span{
-        padding: 10px;
+    .card-text{
+        padding: 30px;
+
+        font-size: 18px;
+
+
+        .card-name{
+            margin-bottom: 30px;
+    
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    
+        .card-archetype{
+            color: black;
+        }
     }
+
 
 }
 
