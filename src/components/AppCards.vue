@@ -1,6 +1,7 @@
 <script>
 
 import CardItem from './CardItem.vue';
+import {store} from '../store.js';
 
 export default {
     name: "AppCards",
@@ -9,7 +10,8 @@ export default {
 
     data(){
         return{
-
+            store,
+            
 
         }
     }
@@ -21,7 +23,14 @@ export default {
 
 <template>
 
-    <CardItem></CardItem>
+    <ul>
+        <CardItem
+        v-for="currentCard in store.cards"
+        :card="currentCard"
+        :cardImg="currentCard.card_images[0]">
+        </CardItem>
+        
+    </ul>
 
 </template>
 
