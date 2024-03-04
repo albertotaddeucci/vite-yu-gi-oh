@@ -28,10 +28,11 @@ export default {
         <div class="container">
 
             <AppLoader 
-            v-show="store.count!=20"
+            v-show="store.count<store.imgPerPage"
             ></AppLoader>
 
-            <div v-show="store.count==20">
+            <div
+            v-show="store.count>=store.imgPerPage">
                 <div class="card-count">
                     Found {{ store.cards.length }} cards
         
@@ -40,8 +41,7 @@ export default {
                 <ul>
                     <CardItem
                     v-for="currentCard in store.cards"
-                    :card="currentCard"
-                    :cardImg="currentCard.card_images[0]"
+                    :card="currentCard"                    
                     >
                     </CardItem>
                     

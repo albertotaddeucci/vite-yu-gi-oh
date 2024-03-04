@@ -6,7 +6,6 @@ export default {
 
     props: {
         card: Object,
-        cardImg: Object,
         
     },
 
@@ -14,17 +13,7 @@ export default {
         return {
             store,
             
-            
-            
         }
-    },
-    methods: {
-        onImgLoad() {
-            store.count++ 
-                  
-            
-            return this.isLoaded = true
-        },
     },
 }
 
@@ -34,7 +23,7 @@ export default {
 
 <li>
     
-    <img  @load="onImgLoad()" :src="cardImg.image_url" alt="">
+    <img  @load="store.count++" :src="card.card_images[0].image_url" alt="">
     <div class="card-text">
         <div class="card-name">{{ card.name }}</div>
         <div class="card-archetype">{{ card.archetype }}</div>
