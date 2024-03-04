@@ -28,10 +28,10 @@ export default {
         <div class="container">
 
             <AppLoader 
-            v-if="store.cards.length<20"
+            v-show="store.count!=20"
             ></AppLoader>
 
-            <div v-else>
+            <div v-show="store.count==20">
                 <div class="card-count">
                     Found {{ store.cards.length }} cards
         
@@ -41,10 +41,12 @@ export default {
                     <CardItem
                     v-for="currentCard in store.cards"
                     :card="currentCard"
-                    :cardImg="currentCard.card_images[0]">
+                    :cardImg="currentCard.card_images[0]"
+                    >
                     </CardItem>
                     
                 </ul>
+
 
             </div>
     
@@ -83,6 +85,7 @@ main{
             flex-wrap: wrap;
             gap: $cardsGapY $cardsGapX  ;
         }
+
     }
 }
 
