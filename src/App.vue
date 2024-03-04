@@ -8,7 +8,8 @@ import axios from 'axios';
 export default{
   components: {
     AppCards,
-    AppNav},
+    AppNav,
+  },
 
   data(){
     return{
@@ -34,13 +35,16 @@ export default{
 </script>
 
 <template>
-<AppNav></AppNav>
-<AppCards></AppCards>
+
+  <AppNav></AppNav>
+  <AppCards></AppCards>
+  
 
 </template>
 
 <style lang="scss">
 @use './styles/general' as *;
+
 
 
 

@@ -19,6 +19,8 @@ export default {
 
 nav{
     padding: 24px 30px ;
+
+    background-color: white;
 }
 
 

@@ -1,11 +1,13 @@
 <script>
 import CardItem from './CardItem.vue';
+import AppLoader from './AppLoader.vue';
+
 import {store} from '../store.js';
 
 export default {
     name: "AppCards",
 
-    components: {CardItem},
+    components: {CardItem, AppLoader},
 
     data(){
         return{
@@ -24,20 +26,28 @@ export default {
     <main>
 
         <div class="container">
-    
-            <div class="card-count">
-                Found {{ store.cards.length }} cards
-    
+
+            <AppLoader 
+            v-if="store.cards.length<20"
+            ></AppLoader>
+
+            <div v-else>
+                <div class="card-count">
+                    Found {{ store.cards.length }} cards
+        
+                </div>
+        
+                <ul>
+                    <CardItem
+                    v-for="currentCard in store.cards"
+                    :card="currentCard"
+                    :cardImg="currentCard.card_images[0]">
+                    </CardItem>
+                    
+                </ul>
+
             </div>
     
-            <ul>
-                <CardItem
-                v-for="currentCard in store.cards"
-                :card="currentCard"
-                :cardImg="currentCard.card_images[0]">
-                </CardItem>
-                
-            </ul>
     
         </div>
 
@@ -50,35 +60,33 @@ export default {
 @use '../styles/variables' as *;
 
 main{
-    padding-top: 125px;
-
-    background-color: $primaryBg;
+    padding-block: 125px;
     
-}
-
-.container{
-
-    padding: 70px;
-
-    background-color: white;
-
-    .card-count{
-        padding: 30px;
-        
-        font-weight: bold;
-        font-size: 20px;
-
-        color: white;
-        background-color: $secondaryBg;
+    .container{
+    
+        padding: 70px;
+    
+        background-color: white;
+    
+        .card-count{
+            padding: 30px;
+            
+            font-weight: bold;
+            font-size: 20px;
+    
+            color: white;
+            background-color: $secondaryBg;
+        }
+    
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            gap: $cardsGapY $cardsGapX  ;
+        }
     }
-
 }
 
-ul{
-    display: flex;
-    flex-wrap: wrap;
-    gap: $cardsGapY $cardsGapX  ;
-}
+
 
 
 
