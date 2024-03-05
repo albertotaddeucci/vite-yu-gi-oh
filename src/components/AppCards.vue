@@ -33,8 +33,8 @@ export default {
 
             <div
             v-show="store.count>=store.imgPerPage">
-                <div class="card-count">
-                    Found {{ store.cards.length }} cards
+                <div v-show="store.found!=0" class="card-count">
+                    Found {{ store.found }} cards
         
                 </div>
         

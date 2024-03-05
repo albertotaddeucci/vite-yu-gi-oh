@@ -26,8 +26,8 @@ export default {
   <div class="container">
 
     <div class="select-wrapper">
-      <select id="mySelect" v-model="store.selected" @change="$emit('search')">
-        <option  v-for="(archetype) in store.archetypes" >{{archetype.archetype_name}}</option>
+      <select id="select" v-model="store.selected" @change="$emit('search')">
+        <option  v-for="archetype in store.archetypes" >{{archetype.archetype_name}}</option>
         
       </select>
     </div>
@@ -45,16 +45,16 @@ export default {
 
 
 
-.select-wrapper select {
+#select{
   margin-top: 40px;
   padding: 20px 30px; 
   
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid white;
+  border-radius: 10px;
 
   font-size: 20px;
   
-  background-color: #f1f1f1; 
+  background-color: white;
   cursor: pointer;
 }
 

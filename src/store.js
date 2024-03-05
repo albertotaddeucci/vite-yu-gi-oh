@@ -9,6 +9,7 @@ export const store = reactive({
     archetypes: [],
     selected: '',
 
+    found: 0,
 
 
 
