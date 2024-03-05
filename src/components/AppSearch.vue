@@ -3,16 +3,16 @@ import {store} from '../store.js';
 
 
 export default {
-    name: "AppSearch",
+  
+  name: "AppSearch",
+  
+  data(){
+      return{
+         store,    
+                  
 
-    
-    data(){
-        return{
-           store,    
-                    
-
-        }
-    },
+      }
+  },
 
     
 }
@@ -25,7 +25,7 @@ export default {
 
   <div class="container">
 
-    <div class="select-wrapper">
+    <div>
       <select id="select" v-model="store.selected" @change="$emit('search')" >
         <option disabled value="">Seleziona un archetipo</option>
         <option  v-for="archetype in store.archetypes" >{{archetype.archetype_name}}</option>
