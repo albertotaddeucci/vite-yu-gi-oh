@@ -2,6 +2,7 @@
 import AppNav from './components/AppNav.vue';
 import AppCards from './components/AppCards.vue';
 import {store} from './store.js';
+import AppSearch from './components/AppSearch.vue';
 
 import axios from 'axios';
 
@@ -9,6 +10,7 @@ export default{
   components: {
     AppCards,
     AppNav,
+    AppSearch,
   },
 
   data(){
@@ -28,8 +30,6 @@ export default{
     
   }
 
- 
-
 }
 
 
@@ -38,6 +38,7 @@ export default{
 <template>
 
   <AppNav></AppNav>
+  <AppSearch></AppSearch>
   <AppCards></AppCards>
   
 
@@ -45,8 +46,5 @@ export default{
 
 <style lang="scss">
 @use './styles/general' as *;
-
-
-
 
 </style>

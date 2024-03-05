@@ -28,7 +28,7 @@ export default {
         <div class="container">
 
             <AppLoader 
-            v-show="store.count<store.imgPerPage"
+            v-if="store.count<store.imgPerPage"
             ></AppLoader>
 
             <div
