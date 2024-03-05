@@ -26,7 +26,8 @@ export default {
   <div class="container">
 
     <div class="select-wrapper">
-      <select id="select" v-model="store.selected" @change="$emit('search')">
+      <select id="select" v-model="store.selected" @change="$emit('search')" >
+        <option disabled value="">Seleziona un archetipo</option>
         <option  v-for="archetype in store.archetypes" >{{archetype.archetype_name}}</option>
         
       </select>
