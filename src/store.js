@@ -6,6 +6,8 @@ export const store = reactive({
     cards: [],
     count: 0,
 
+    archetypes: [],
+
 
 
 

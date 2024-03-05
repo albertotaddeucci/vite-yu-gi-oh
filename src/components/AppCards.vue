@@ -62,7 +62,7 @@ export default {
 @use '../styles/variables' as *;
 
 main{
-    padding-block: 125px;
+    padding-block: 50px;
     
     .container{
     

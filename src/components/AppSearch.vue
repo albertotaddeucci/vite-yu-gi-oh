@@ -1,4 +1,5 @@
 <script>
+import {store} from '../store.js';
 
 
 export default {
@@ -6,7 +7,7 @@ export default {
 
     data(){
         return{
-                        
+           store,             
 
         }
     },
@@ -20,13 +21,17 @@ export default {
 
 <template>
 
-<div class="select-wrapper">
-  <select id="mySelect">
-    <option value="option1">Option 1</option>
-    <option value="option2">Option 2</option>
-    <option value="option3">Option 3</option>
-  </select>
-</div>
+  <div class="container">
+
+    <div class="select-wrapper">
+      <select id="mySelect">
+        <option v-for="archetype in store.archetypes" value="option1">{{archetype.archetype_name}}</option>
+        
+      </select>
+    </div>
+
+  </div>
+
 
 
 
@@ -39,6 +44,7 @@ export default {
 
 
 .select-wrapper select {
+  margin-top: 40px;
   padding: 20px 30px; 
   
   border: 1px solid #ccc;
