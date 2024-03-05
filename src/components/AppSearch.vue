@@ -5,9 +5,11 @@ import {store} from '../store.js';
 export default {
     name: "AppSearch",
 
+    
     data(){
         return{
-           store,             
+           store,    
+                    
 
         }
     },
@@ -24,8 +26,8 @@ export default {
   <div class="container">
 
     <div class="select-wrapper">
-      <select id="mySelect">
-        <option v-for="archetype in store.archetypes" value="option1">{{archetype.archetype_name}}</option>
+      <select id="mySelect" v-model="store.selected" @change="$emit('search')">
+        <option  v-for="(archetype) in store.archetypes" >{{archetype.archetype_name}}</option>
         
       </select>
     </div>

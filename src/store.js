@@ -7,6 +7,7 @@ export const store = reactive({
     count: 0,
 
     archetypes: [],
+    selected: '',
 
 
 

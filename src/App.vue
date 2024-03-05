@@ -19,16 +19,30 @@ export default{
 
     }
   },
+
+  methods:{
+    searchArch(){
+      axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=${store.imgPerPage}&offset=0&archetype=${store.selected}`)
+      .then(res =>{
+        this.store.cards = res.data.data
+
+    });
+
+    }
+  },
  
 
   created(){
 
-    axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=${store.imgPerPage}&offset=0`).then(res =>{
+    axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=${store.imgPerPage}&offset=0`)
+    .then(res =>{
       this.store.cards = res.data.data
+
 
     }),
 
-    axios.get(`https://db.ygoprodeck.com/api/v7/archetypes.php`).then(res =>{
+    axios.get(`https://db.ygoprodeck.com/api/v7/archetypes.php`)
+    .then(res =>{
       this.store.archetypes = res.data
 
 
@@ -45,7 +59,7 @@ export default{
 <template>
 
   <AppNav></AppNav>
-  <AppSearch></AppSearch>
+  <AppSearch @search="searchArch()"></AppSearch>
   <AppCards></AppCards>
   
 
